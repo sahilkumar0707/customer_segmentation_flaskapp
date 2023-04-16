@@ -3,63 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <title>CUSTOMER SEGMENTATION </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script defer src="./segment.js"></script>
 </head>
 <body>
-
+<h1>CUSTOMER SEGMENTATION</h1>
 <form method="post" action="/predict">
-    <label>GENDER :</label><br>
-    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="Gender" style="width:200px">
-
-  <option value="0">MALE</option>
-  <option value="1">FEMALE</option>
+<div style="float:left;">
+    <label class="left">GENDER :</label><br>
+    <select class="input" aria-label=".form-select-lg example" name="Gender" style="width:200px">
+        <option value="0">MALE</option>
+        <option value="1">FEMALE</option>
     </select>
+</div>
 
-    <br><br>
-     <label>EVER_MARRIED :</label><br>
-    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="Ever_Married" style="width:200px">
-
-  <option value="0">NO</option>
-  <option value="1">YES</option>
+<div style="float:left;">
+    <label class="left">EVER_MARRIED :</label><br>
+    <select class="input" aria-label=".form-select-lg example" name="Ever_Married" style="width:200px">
+        <option value="0">NO</option>
+        <option value="1">YES</option>
     </select>
+</div>
 
-    <br><br>
-     <label>PROFESSION :</label><br>
-    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="Profession" style="width:200px">
-
-  <option value="0">ARTIST</option>
-  <option value="1">HEALTHCARE</option>
-  <option value="2">ENTERTAINMENT</option>
-         <option value="3">ENGINEER</option>
-  <option value="4">DOCTOR</option>
-  <option value="5">LAWYER</option>
-         <option value="6">EXECUTIVE</option>
-  <option value="7">MARKETING</option>
-  <option value="8">HOMEMAKER</option>
+<div style="float:left;">
+    <label>PROFESSION :</label><br>
+    <select class="input" aria-label=".form-select-lg example" name="Profession" style="width:200px">
+        <option value="0">ARTIST</option>
+        <option value="1">HEALTHCARE</option>
+        <option value="2">ENTERTAINMENT</option>
+        <option value="3">ENGINEER</option>
+        <option value="4">DOCTOR</option>
+        <option value="5">LAWYER</option>
+        <option value="6">EXECUTIVE</option>
+        <option value="7">MARKETING</option>
+        <option value="8">HOMEMAKER</option>
         <option value="9">OTHER</option>
     </select>
-<br>
-<br>
+</div>
+
+
+<div style="float:left;">
     <label>WORK EXPERIENCE :</label><br>
-    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="Work_Experience" style="width:200px">
-
-  <option value="0">NO</option>
-  <option value="1">YES</option>
+    <select class="input" aria-label=".form-select-lg example" name="Work_Experience" style="width:200px">
+        <option value="0">NO</option>
+        <option value="1">YES</option>
     </select>
-<br><br>
-     <label>SPENDING SCORE :</label><br>
-    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="Spending_Score" style="width:200px">
+</div>
 
-  <option value="0">LOW</option>
-  <option value="1">AVERAGE</option>
-          <option value="2">HIGH</option>
+
+<div style="float:left;">
+    <label>SPENDING SCORE :</label><br>
+    <select class="input" aria-label=".form-select-lg example" name="Spending_Score" style="width:200px">
+        <option value="0">LOW</option>
+        <option value="1">AVERAGE</option>
+        <option value="2">HIGH</option>
     </select>
-<br><br>
-     <label>AGE :</label><br>
-    <input type="number" name="Age" style="width:200px"><br><br>
+</div>
+
+
+<div style="float:left;">
+    <label>AGE :</label><br>
+    <input type="number" name="Age" style="width:200px" class="input">
+</div>
+
+
+<div style="float:left;">
+
     <label>FAMILY SIZE:</label><br>
-    <input type="number" name="Family_Size" style="width:200px"><br><br>
-    <input type="submit" name="predict" style="width:200px">
-</form>
+    <input type="number" name="Family_Size" style="width:200px" class="input">
+</div>
 
+    <input type="submit" name="predict" style="width:200px" class="submit">
+
+
+
+</form>
+{% if result %}
+<h4>{{ result }}</h4>
+{% endif %}
 </body>
 </html>
