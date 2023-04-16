@@ -19,7 +19,17 @@ def predict_segment():
     Family_Size = int(request.form.get('Family_Size'))
     # prediction going on
     result = segment_model.predict(np.array([Gender, Ever_Married, Age, Profession, Work_Experience, Spending_Score, Family_Size]).reshape(1, 7))
-    return str(result)
+
+    if result[0] == 1:
+        result = 'SEGMENT A'
+    elif result[0] == 2:
+        result = 'SEGMENT B'
+    elif result[0] == 3:
+        result = 'SEGMENT C'
+    else:
+        result = 'SEGMENT D'
+
+    return render_template('index.html',result = result)
 
 if __name__ == '__main__':
     app1.run(debug=True)
