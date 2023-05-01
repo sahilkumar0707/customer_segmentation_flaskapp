@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>CUSTOMER SEGMENTATION </title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script defer src="./segment.js"></script>
+    <script type = 'text/javascript' src ="{{ url_for('static', filename='js/segment.js') }}"></script>
 </head>
 <body>
 <h1>CUSTOMER SEGMENTATION</h1>
-<form method="post" action="/predict">
+<form method="post" action="/predict" onsubmit=" return validation()">
 <div style="float:left;">
-    <label class="left">GENDER :</label><br>
+    <label class="left" id = 'gender'>GENDER :</label><br>
     <select class="input" aria-label=".form-select-lg example" name="Gender" style="width:200px">
         <option value="0">MALE</option>
         <option value="1">FEMALE</option>
@@ -63,17 +63,17 @@
 
 <div style="float:left;">
     <label>AGE :</label><br>
-    <input type="number" name="Age" style="width:200px" class="input">
+    <input type="number" name="Age" style="width:200px" class="input" id = "age">
 </div>
 
 
 <div style="float:left;">
 
     <label>FAMILY SIZE:</label><br>
-    <input type="number" name="Family_Size" style="width:200px" class="input">
+    <input type="number" name="Family_Size" style="width:200px" class="input" id="family_size">
 </div>
 
-    <input type="submit" name="predict" style="width:200px" class="submit">
+    <input type="submit" name="predict" style="width:200px" class="submit" >
 
 
 
